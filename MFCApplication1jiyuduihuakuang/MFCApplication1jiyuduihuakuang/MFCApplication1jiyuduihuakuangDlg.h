@@ -32,12 +32,15 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();//返回光标
 	DECLARE_MESSAGE_MAP()
 public:
-//	afx_msg void OnBnClickedButton1();
 	afx_msg void OnClickedEnable();
 	afx_msg void OnBnClickedExit();
 	CButton m_Enable;
 	CButton m_Exit;
-//	afx_msg void OnBnClickedDelete();
-	// 练习删除控件
-//	CButton m_Delete;
+	// 状态栏文本	// 状态栏文本
+	CStatic m_toast;
+	afx_msg void OnStnClickedLinkbaidu();
+	afx_msg void OnStnClickedLinkhao123();
+	CStatic m_Wangyi;
+	afx_msg void OnStnClickedToast();
+	afx_msg void OnStnClickedWangyi();
 };

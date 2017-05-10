@@ -63,6 +63,8 @@ void CMFCApplication1jiyuduihuakuangDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_Enable, m_Enable);
 	DDX_Control(pDX, IDC_Exit, m_Exit);
 	//  DDX_Control(pDX, IDC_Delete, m_Delete);
+	DDX_Control(pDX, IDC_Toast, m_toast);
+	DDX_Control(pDX, IDC_Wangyi, m_Wangyi);
 }
 //消息映射，定义乐峰所有消息的来源和处理函数
 BEGIN_MESSAGE_MAP(CMFCApplication1jiyuduihuakuangDlg, CDialogEx)
@@ -72,6 +74,11 @@ BEGIN_MESSAGE_MAP(CMFCApplication1jiyuduihuakuangDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_Enable, &CMFCApplication1jiyuduihuakuangDlg::OnClickedEnable)
 	ON_BN_CLICKED(IDC_Exit, &CMFCApplication1jiyuduihuakuangDlg::OnBnClickedExit)
 	//ON_BN_CLICKED(IDC_Delete, &CMFCApplication1jiyuduihuakuangDlg::m_Delete)
+	ON_BN_CLICKED(IDC_LinkBaidu, &CMFCApplication1jiyuduihuakuangDlg::OnStnClickedLinkbaidu)
+	ON_BN_CLICKED(IDC_LinkHao123, &CMFCApplication1jiyuduihuakuangDlg::OnStnClickedLinkhao123)
+
+	ON_STN_CLICKED(IDC_Toast, &CMFCApplication1jiyuduihuakuangDlg::OnStnClickedToast)
+	ON_STN_CLICKED(IDC_Wangyi, &CMFCApplication1jiyuduihuakuangDlg::OnStnClickedWangyi)
 END_MESSAGE_MAP()
 
 
@@ -197,3 +204,37 @@ void CMFCApplication1jiyuduihuakuangDlg::OnBnClickedExit()
 //{
 //	// TODO:  在此添加控件通知处理程序代码
 //}
+
+
+void CMFCApplication1jiyuduihuakuangDlg::OnStnClickedLinkbaidu()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	ShellExecute(0, NULL, _T("http://www.baidu.com"), NULL, NULL, SW_NORMAL);
+	GetDlgItem(IDC_LinkBaidu)->SetWindowTextW(_T("你好百度"));
+	m_toast.SetWindowTextW(_T("已打开百度网页！"));
+}
+
+
+void CMFCApplication1jiyuduihuakuangDlg::OnStnClickedLinkhao123()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	ShellExecute(0, NULL, _T("http://www.hao123.com"), NULL, NULL, SW_NORMAL);
+	GetDlgItem(IDC_LinkHao123)->SetWindowTextW(_T("你好hao123"));
+	m_toast.SetWindowTextW(_T("已打开hao123网页！"));
+}
+
+
+
+void CMFCApplication1jiyuduihuakuangDlg::OnStnClickedToast()
+{
+	// TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CMFCApplication1jiyuduihuakuangDlg::OnStnClickedWangyi()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	ShellExecute(0, NULL, _T("http://http://www.163.com/"), NULL, NULL, SW_NORMAL);
+	GetDlgItem(IDC_Wangyi)->SetWindowTextW(_T("你好163"));
+	m_toast.SetWindowTextW(_T("已打开163网页！"));
+}
