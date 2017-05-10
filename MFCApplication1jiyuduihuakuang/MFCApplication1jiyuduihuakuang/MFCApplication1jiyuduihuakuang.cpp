@@ -20,7 +20,7 @@ END_MESSAGE_MAP()
 
 // CMFCApplication1jiyuduihuakuangApp 构造
 
-CMFCApplication1jiyuduihuakuangApp::CMFCApplication1jiyuduihuakuangApp()
+CMFCApplication1jiyuduihuakuangApp::CMFCApplication1jiyuduihuakuangApp()//创建构造函数，程序创建的第一步
 {
 	// 支持重新启动管理器
 	m_dwRestartManagerSupportFlags = AFX_RESTART_MANAGER_SUPPORT_RESTART;
@@ -32,7 +32,7 @@ CMFCApplication1jiyuduihuakuangApp::CMFCApplication1jiyuduihuakuangApp()
 
 // 唯一的一个 CMFCApplication1jiyuduihuakuangApp 对象
 
-CMFCApplication1jiyuduihuakuangApp theApp;
+CMFCApplication1jiyuduihuakuangApp theApp;//在.cpp中定义，实例化
 
 
 // CMFCApplication1jiyuduihuakuangApp 初始化

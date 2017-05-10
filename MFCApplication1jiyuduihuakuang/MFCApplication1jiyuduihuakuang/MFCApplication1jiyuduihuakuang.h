@@ -29,4 +29,4 @@ public:
 	DECLARE_MESSAGE_MAP()
 };
 
-extern CMFCApplication1jiyuduihuakuangApp theApp;
+extern CMFCApplication1jiyuduihuakuangApp theApp;//项目生成后，都会生成一个属于CMFCApplication1jiyuduihuakuangApp类的theApp对象
