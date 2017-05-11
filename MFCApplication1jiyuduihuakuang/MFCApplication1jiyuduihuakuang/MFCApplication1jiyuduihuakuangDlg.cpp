@@ -65,22 +65,27 @@ void CMFCApplication1jiyuduihuakuangDlg::DoDataExchange(CDataExchange* pDX)
 	//  DDX_Control(pDX, IDC_Delete, m_Delete);
 	DDX_Control(pDX, IDC_Toast, m_toast);
 	DDX_Control(pDX, IDC_Wangyi, m_Wangyi);
+	DDX_Control(pDX, IDC_Toast2, m_toast2);
 }
 //消息映射，定义乐峰所有消息的来源和处理函数
 BEGIN_MESSAGE_MAP(CMFCApplication1jiyuduihuakuangDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_Enable, &CMFCApplication1jiyuduihuakuangDlg::OnClickedEnable)
-	ON_BN_CLICKED(IDC_Exit, &CMFCApplication1jiyuduihuakuangDlg::OnBnClickedExit)
-	//ON_BN_CLICKED(IDC_Delete, &CMFCApplication1jiyuduihuakuangDlg::m_Delete)
-	ON_BN_CLICKED(IDC_LinkBaidu, &CMFCApplication1jiyuduihuakuangDlg::OnStnClickedLinkbaidu)
-	ON_BN_CLICKED(IDC_LinkHao123, &CMFCApplication1jiyuduihuakuangDlg::OnStnClickedLinkhao123)
+	/*ON_WM_CLOSE()*/
+	//ON_BN_CLICKED(IDC_Enable, &CMFCApplication1jiyuduihuakuangDlg::OnClickedEnable)
+	//ON_BN_CLICKED(IDC_Exit, &CMFCApplication1jiyuduihuakuangDlg::OnBnClickedExit)
+	////ON_BN_CLICKED(IDC_Delete, &CMFCApplication1jiyuduihuakuangDlg::m_Delete)
+	//ON_BN_CLICKED(IDC_LinkBaidu, &CMFCApplication1jiyuduihuakuangDlg::OnStnClickedLinkbaidu)
+	//ON_BN_CLICKED(IDC_LinkHao123, &CMFCApplication1jiyuduihuakuangDlg::OnStnClickedLinkhao123)
 
-	ON_STN_CLICKED(IDC_Toast, &CMFCApplication1jiyuduihuakuangDlg::OnStnClickedToast)
-	ON_STN_CLICKED(IDC_Wangyi, &CMFCApplication1jiyuduihuakuangDlg::OnStnClickedWangyi)
+	//ON_STN_CLICKED(IDC_Toast, &CMFCApplication1jiyuduihuakuangDlg::OnStnClickedToast)
+	//ON_STN_CLICKED(IDC_Wangyi, &CMFCApplication1jiyuduihuakuangDlg::OnStnClickedWangyi)
+	
+	ON_CONTROL_RANGE(BN_CLICKED, IDC_BUTTON1, IDC_BUTTON4, OnBnClickedXXX)
+	ON_STN_CLICKED(IDC_Toast2, &CMFCApplication1jiyuduihuakuangDlg::OnStnClickedToast2)
+
 END_MESSAGE_MAP()
-
 
 // CMFCApplication1jiyuduihuakuangDlg 消息处理程序
 
@@ -237,4 +242,24 @@ void CMFCApplication1jiyuduihuakuangDlg::OnStnClickedWangyi()
 	ShellExecute(0, NULL, _T("http://http://www.163.com/"), NULL, NULL, SW_NORMAL);
 	GetDlgItem(IDC_Wangyi)->SetWindowTextW(_T("你好163"));
 	m_toast.SetWindowTextW(_T("已打开163网页！"));
+}
+void CMFCApplication1jiyuduihuakuangDlg::OnBnClickedXXX(UINT nID)
+{
+	int ID = nID - IDC_BUTTON1;
+	CString str;
+	str.Format(_T("%s%i%s"), _T("按钮"), ID + 1, _T("按下！"));
+	m_toast2.SetWindowTextW(str);
+	//注释掉的和前面三行代码的作用一样
+	//switch (ID)
+	//{
+	//case 0:m_toast2.SetWindowTextW(_T("按钮1按下！")); break;
+	//case 1:m_toast2.SetWindowTextW(_T("按钮2按下！")); break;
+	//case 2:m_toast2.SetWindowTextW(_T("按钮3按下！")); break;
+	//case 3:m_toast2.SetWindowTextW(_T("按钮4按下！")); break;
+	//}
+}
+
+void CMFCApplication1jiyuduihuakuangDlg::OnStnClickedToast2()
+{
+	// TODO:  在此添加控件通知处理程序代码
 }

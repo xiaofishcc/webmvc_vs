@@ -43,4 +43,8 @@ public:
 	CStatic m_Wangyi;
 	afx_msg void OnStnClickedToast();
 	afx_msg void OnStnClickedWangyi();
+	afx_msg void OnClose();
+	afx_msg void OnBnClickedXXX(UINT nID);//触发消息时对应的控件ID，响应函数
+	CStatic m_toast2;
+	afx_msg void OnStnClickedToast2();
 };
