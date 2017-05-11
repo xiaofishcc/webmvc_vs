@@ -36,7 +36,7 @@ public:
 	afx_msg void OnBnClickedExit();
 	CButton m_Enable;
 	CButton m_Exit;
-	// 状态栏文本	// 状态栏文本
+	// 状态栏文本	链接相关网址
 	CStatic m_toast;
 	afx_msg void OnStnClickedLinkbaidu();
 	afx_msg void OnStnClickedLinkhao123();
@@ -47,4 +47,15 @@ public:
 	afx_msg void OnBnClickedXXX(UINT nID);//触发消息时对应的控件ID，响应函数
 	CStatic m_toast2;
 	afx_msg void OnStnClickedToast2();
+	//计算器加法相关
+	afx_msg void OnBnClickedCalc();
+	double m_add1;
+	double m_add2;
+	double m_result;
+	CEdit m_record;
+	CString m_passWord;
+
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void OnEnChangeStatus();
+	afx_msg void OnEnChangePassword();
 };
