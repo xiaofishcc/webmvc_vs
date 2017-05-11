@@ -79,6 +79,7 @@ void CdemoDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_Num3, m_num3);
 	DDX_Text(pDX, IDC_Result1, m_result1);
 	DDX_Control(pDX, IDC_TimeDis, m_time);
+	DDX_Control(pDX, IDC_AutoStart, m_autoStart);
 }
 
 BEGIN_MESSAGE_MAP(CdemoDlg, CDialogEx)
@@ -96,6 +97,7 @@ BEGIN_MESSAGE_MAP(CdemoDlg, CDialogEx)
 	ON_MESSAGE(WM_MYMSG,OnMyMsgHandler)//消息映射
 	ON_WM_TIMER()
 	ON_BN_CLICKED(IDC_Click, &CdemoDlg::OnBnClickedClick)
+	ON_BN_CLICKED(IDC_AutoStart, &CdemoDlg::OnBnClickedAutostart)
 END_MESSAGE_MAP()
 
 
@@ -301,5 +303,37 @@ void CdemoDlg::OnBnClickedClick()
 	{
 		::SendMessage(::AfxGetMainWnd()->m_hWnd, WM_MYMSG, 0, 0);//SendMessage触发消息
 		num = 0;
+	}
+}
+
+
+void CdemoDlg::OnBnClickedAutostart()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	HKEY hKey;
+	CString strRegPath = _T("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
+	//找到系统启动项
+	if (m_autoStart.GetCheck())
+	{
+		if (RegOpenKeyEx(HKEY_CURRENT_USER, strRegPath, 0, KEY_ALL_ACCESS, &hKey) == ERROR_SUCCESS)//打开启动项
+		{
+			TCHAR szModule[MAX_PATH];
+			GetModuleFileName(NULL, szModule, MAX_PATH);//得到本程序自身的全路径
+			RegSetValueEx(hKey, _T("Demo"), 0, REG_SZ, (LPBYTE)szModule, (lstrlen(szModule) + 1)*sizeof(TCHAR));
+			//添加一个子key,并设置值，“Demo”是应用程序名字（不加后缀.exe）
+			RegCloseKey(hKey);//关闭注册表
+		}
+		else
+		{
+			AfxMessageBox(_T("系统参数错误，不能随系统启动"));
+		}
+	}
+	else
+	{
+		if (RegOpenKeyEx(HKEY_CURRENT_USER, strRegPath, 0, KEY_ALL_ACCESS, &hKey) == ERROR_SUCCESS)
+		{
+			RegDeleteValue(hKey,_T("Demo"));
+			RegCloseKey(hKey);//关闭注册表
+		}
 	}
 }

@@ -59,4 +59,6 @@ public:
 	afx_msg void OnBnClickedReset();
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg void OnBnClickedClick();
+	CButton m_autoStart;
+	afx_msg void OnBnClickedAutostart();
 };
