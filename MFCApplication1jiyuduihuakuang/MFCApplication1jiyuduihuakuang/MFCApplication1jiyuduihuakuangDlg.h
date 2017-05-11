@@ -49,11 +49,7 @@ public:
 	afx_msg void OnStnClickedToast2();
 	//计算器加法相关
 	afx_msg void OnBnClickedCalc();
-	double m_add1;
-	double m_add2;
-	double m_result;
 	CEdit m_record;
-	CString m_passWord;
 
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnEnChangeStatus();
@@ -63,4 +59,8 @@ public:
 	afx_msg void OnEnChangeAdd1();
 	afx_msg void OnEnChangeRecord();
 
+	double m_add1;
+	double m_add2;
+	double m_result;
+	CString m_passWord;
 };

@@ -1,18 +1,20 @@
-﻿生成启动时间为 2017-05-11 11:55:00。
-     1>项目“C:\Users\Administrator\documents\visual studio 2013\Projects\MFCApplication1jiyuduihuakuang\MFCApplication1jiyuduihuakuang\MFCApplication1jiyuduihuakuang.vcxproj”在节点 2 上(Build 个目标)。
+﻿生成启动时间为 2017-05-11 14:37:13。
+     1>项目“C:\Users\Administrator\Documents\Visual Studio 2013\Projects\MFCApplication1jiyuduihuakuang\MFCApplication1jiyuduihuakuang\MFCApplication1jiyuduihuakuang.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\MFCApplication1jiyuduihuakuang.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MFCApplication1jiyuduihuakuangDlg.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\MFCApplication1jiyuduihuakuang.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MFCApplication1jiyuduihuakuang.cpp MFCApplication1jiyuduihuakuangDlg.cpp
          MFCApplication1jiyuduihuakuangDlg.cpp
-       ResourceCompile:
-         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0804" /IDebug\ /nologo /fo"Debug\MFCApplication1jiyuduihuakuang.res" MFCApplication1jiyuduihuakuang.rc 
+         正在生成代码...
+         正在编译...
+         MFCApplication1jiyuduihuakuang.cpp
+         正在生成代码...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\documents\visual studio 2013\Projects\MFCApplication1jiyuduihuakuang\Debug\MFCApplication1jiyuduihuakuang.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"C:\Users\Administrator\documents\visual studio 2013\Projects\MFCApplication1jiyuduihuakuang\Debug\MFCApplication1jiyuduihuakuang.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Administrator\documents\visual studio 2013\Projects\MFCApplication1jiyuduihuakuang\Debug\MFCApplication1jiyuduihuakuang.lib" /MACHINE:X86 Debug\MFCApplication1jiyuduihuakuang.res
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\Documents\Visual Studio 2013\Projects\MFCApplication1jiyuduihuakuang\Debug\MFCApplication1jiyuduihuakuang.exe" /INCREMENTAL /NOLOGO /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /DEBUG /PDB:"C:\Users\Administrator\Documents\Visual Studio 2013\Projects\MFCApplication1jiyuduihuakuang\Debug\MFCApplication1jiyuduihuakuang.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Administrator\Documents\Visual Studio 2013\Projects\MFCApplication1jiyuduihuakuang\Debug\MFCApplication1jiyuduihuakuang.lib" /MACHINE:X86 Debug\MFCApplication1jiyuduihuakuang.res
          Debug\MFCApplication1jiyuduihuakuang.obj
          Debug\MFCApplication1jiyuduihuakuangDlg.obj
          Debug\stdafx.obj
-         MFCApplication1jiyuduihuakuang.vcxproj -> C:\Users\Administrator\documents\visual studio 2013\Projects\MFCApplication1jiyuduihuakuang\Debug\MFCApplication1jiyuduihuakuang.exe
-     1>已完成生成项目“C:\Users\Administrator\documents\visual studio 2013\Projects\MFCApplication1jiyuduihuakuang\MFCApplication1jiyuduihuakuang\MFCApplication1jiyuduihuakuang.vcxproj”(Build 个目标)的操作。
+         MFCApplication1jiyuduihuakuang.vcxproj -> C:\Users\Administrator\Documents\Visual Studio 2013\Projects\MFCApplication1jiyuduihuakuang\Debug\MFCApplication1jiyuduihuakuang.exe
+     1>已完成生成项目“C:\Users\Administrator\Documents\Visual Studio 2013\Projects\MFCApplication1jiyuduihuakuang\MFCApplication1jiyuduihuakuang\MFCApplication1jiyuduihuakuang.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:00.64
+已用时间 00:00:00.69

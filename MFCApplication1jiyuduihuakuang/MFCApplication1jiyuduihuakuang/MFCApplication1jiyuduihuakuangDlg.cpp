@@ -59,7 +59,7 @@ CMFCApplication1jiyuduihuakuangDlg::CMFCApplication1jiyuduihuakuangDlg(CWnd* pPa
 	, m_passWord(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
-	m_add1 = 0.0;
+	//  m_add1 = 0.0;
 }
 
 void CMFCApplication1jiyuduihuakuangDlg::DoDataExchange(CDataExchange* pDX)
@@ -72,6 +72,10 @@ void CMFCApplication1jiyuduihuakuangDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_Wangyi, m_Wangyi);
 	DDX_Control(pDX, IDC_Toast2, m_toast2);
 	DDX_Control(pDX, IDC_Record, m_record);
+	DDX_Text(pDX, IDC_Add1, m_add1);
+	DDX_Text(pDX, IDC_Add2, m_add2);
+	DDX_Text(pDX, IDC_Result, m_result);
+	DDX_Text(pDX, IDC_Password, m_passWord);
 }
 //消息映射，定义乐峰所有消息的来源和处理函数
 BEGIN_MESSAGE_MAP(CMFCApplication1jiyuduihuakuangDlg, CDialogEx)
