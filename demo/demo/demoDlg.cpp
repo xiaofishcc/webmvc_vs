@@ -54,6 +54,10 @@ CdemoDlg::CdemoDlg(CWnd* pParent /*=NULL*/)
 	, m_result(0)
 	, m_plus(0)
 	, m_use(false)
+	, m_num1(0)
+	, m_num2(0)
+	, m_num3(0)
+	, m_result1(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -67,6 +71,13 @@ void CdemoDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_Result, m_result);
 	DDX_Radio(pDX, IDC_Plus, m_plus);
 	DDX_Radio(pDX, IDC_Use, m_use);
+	DDX_Control(pDX, IDC_Pisa1, m_pisa1);
+	DDX_Control(pDX, IDC_Pisa2, m_pisa2);
+	DDX_Control(pDX, IDC_Pisa3, m_pisa3);
+	DDX_Text(pDX, IDC_Num1, m_num1);
+	DDX_Text(pDX, IDC_Num2, m_num2);
+	DDX_Text(pDX, IDC_Num3, m_num3);
+	DDX_Text(pDX, IDC_Result1, m_result1);
 }
 
 BEGIN_MESSAGE_MAP(CdemoDlg, CDialogEx)
@@ -74,10 +85,11 @@ BEGIN_MESSAGE_MAP(CdemoDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_WM_CLOSE()
-	ON_BN_CLICKED(IDC_CALC1, &CdemoDlg::OnBnClickedCalc1)
+	/*ON_BN_CLICKED(IDC_CALC1, &CdemoDlg::OnBnClickedCalc1)
 	ON_BN_CLICKED(IDC_Use, &CdemoDlg::OnBnClickedUse)
-	ON_BN_CLICKED(IDC_NUse, &CdemoDlg::OnBnClickedNuse)
-	ON_CONTROL_RANGE(BN_CLICKED,IDC_Plus,IDC_Div,OnBnClickedAlgor)//实现OnBnClickedAlgor函数
+	ON_BN_CLICKED(IDC_NUse, &CdemoDlg::OnBnClickedNuse)*/
+	//ON_CONTROL_RANGE(BN_CLICKED,IDC_Plus,IDC_Div,OnBnClickedAlgor)//实现OnBnClickedAlgor函数
+	ON_BN_CLICKED(IDC_BUTTON1, &CdemoDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -209,4 +221,18 @@ void CdemoDlg::OnBnClickedAlgor(UINT nID)
 	case 3:str = _T("/"); break;
 	}
 	m_algorithm.SetWindowTextW(str);
+}
+
+void CdemoDlg::OnBnClickedButton1()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	UpdateData(true);
+	m_result1 = 0;
+	if (m_pisa1.GetCheck())
+		m_result1 += m_num1 * 250;
+	if (m_pisa2.GetCheck())
+		m_result1 += m_num2* 275;
+	if (m_pisa3.GetCheck())
+		m_result1 += m_num3 * 350;
+	UpdateData(false);
 }

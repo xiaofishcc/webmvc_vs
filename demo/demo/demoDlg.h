@@ -44,4 +44,12 @@ public:
 	double m_result;
 	int m_plus;
 	BOOL m_use;
+	CButton m_pisa1;
+	CButton m_pisa2;
+	CButton m_pisa3;
+	UINT m_num1;
+	UINT m_num2;
+	UINT m_num3;
+	afx_msg void OnBnClickedButton1();
+	double m_result1;
 };
