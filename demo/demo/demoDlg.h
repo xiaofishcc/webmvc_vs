@@ -1,0 +1,47 @@
+
+// demoDlg.h : 头文件
+//
+
+#pragma once
+#include "afxwin.h"
+
+
+// CdemoDlg 对话框
+class CdemoDlg : public CDialogEx
+{
+// 构造
+public:
+	CdemoDlg(CWnd* pParent = NULL);	// 标准构造函数
+
+// 对话框数据
+	enum { IDD = IDD_DEMO_DIALOG };
+
+	protected:
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV 支持
+
+
+// 实现
+protected:
+	HICON m_hIcon;
+
+	// 生成的消息映射函数
+	virtual BOOL OnInitDialog();
+	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
+	afx_msg void OnPaint();
+	afx_msg HCURSOR OnQueryDragIcon();
+	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnEnChangeAdd2();
+	CStatic m_algorithm;
+	afx_msg void OnBnClickedCalc1();
+	afx_msg void OnEnChangeAdd1();
+	afx_msg void OnBnClickedUse();
+	afx_msg void OnBnClickedNuse();
+	//单个函数处理多个事件
+	afx_msg void OnBnClickedAlgor(UINT nID);
+	double m_add1;
+	double m_add2;
+	double m_result;
+	int m_plus;
+	BOOL m_use;
+};
