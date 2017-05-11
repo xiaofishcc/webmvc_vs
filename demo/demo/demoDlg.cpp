@@ -93,7 +93,9 @@ BEGIN_MESSAGE_MAP(CdemoDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON1, &CdemoDlg::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_Timer, &CdemoDlg::OnBnClickedTimer)
 	ON_BN_CLICKED(IDC_Reset, &CdemoDlg::OnBnClickedReset)
+	ON_MESSAGE(WM_MYMSG,OnMyMsgHandler)//消息映射
 	ON_WM_TIMER()
+	ON_BN_CLICKED(IDC_Click, &CdemoDlg::OnBnClickedClick)
 END_MESSAGE_MAP()
 
 
@@ -280,4 +282,24 @@ void CdemoDlg::OnTimer(UINT_PTR nIDEvent)
 	}
 
 	CDialogEx::OnTimer(nIDEvent);
+}
+LRESULT CdemoDlg::OnMyMsgHandler(WPARAM, LPARAM)
+{
+	AfxMessageBox(_T("你的时间到了！"));
+	return 0;
+}
+
+void CdemoDlg::OnBnClickedClick()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	static int num = 0;
+	CString str;
+	str.Format(_T("%s%i%s"), _T("点击"), num + 1, _T("次"));
+	GetDlgItem(IDC_Click)->SetWindowTextW(str);
+	num++;
+	if (num==5)
+	{
+		::SendMessage(::AfxGetMainWnd()->m_hWnd, WM_MYMSG, 0, 0);//SendMessage触发消息
+		num = 0;
+	}
 }

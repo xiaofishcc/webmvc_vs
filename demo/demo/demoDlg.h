@@ -5,6 +5,7 @@
 #pragma once
 #include "afxwin.h"
 
+#define WM_MYMSG WM_USER+1//自定义消息，ID要比WM_USER大
 
 // CdemoDlg 对话框
 class CdemoDlg : public CDialogEx
@@ -29,6 +30,7 @@ protected:
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg LRESULT OnMyMsgHandler(WPARAM, LPARAM);//添加函数声明，用于响应自定义消息
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnEnChangeAdd2();
@@ -56,4 +58,5 @@ public:
 	afx_msg void OnBnClickedTimer();
 	afx_msg void OnBnClickedReset();
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	afx_msg void OnBnClickedClick();
 };
