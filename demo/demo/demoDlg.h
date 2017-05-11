@@ -52,4 +52,8 @@ public:
 	UINT m_num3;
 	afx_msg void OnBnClickedButton1();
 	double m_result1;
+	CStatic m_time;
+	afx_msg void OnBnClickedTimer();
+	afx_msg void OnBnClickedReset();
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 };

@@ -78,6 +78,7 @@ void CdemoDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_Num2, m_num2);
 	DDX_Text(pDX, IDC_Num3, m_num3);
 	DDX_Text(pDX, IDC_Result1, m_result1);
+	DDX_Control(pDX, IDC_TimeDis, m_time);
 }
 
 BEGIN_MESSAGE_MAP(CdemoDlg, CDialogEx)
@@ -90,6 +91,9 @@ BEGIN_MESSAGE_MAP(CdemoDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_NUse, &CdemoDlg::OnBnClickedNuse)*/
 	//ON_CONTROL_RANGE(BN_CLICKED,IDC_Plus,IDC_Div,OnBnClickedAlgor)//实现OnBnClickedAlgor函数
 	ON_BN_CLICKED(IDC_BUTTON1, &CdemoDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_Timer, &CdemoDlg::OnBnClickedTimer)
+	ON_BN_CLICKED(IDC_Reset, &CdemoDlg::OnBnClickedReset)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -235,4 +239,45 @@ void CdemoDlg::OnBnClickedButton1()
 	if (m_pisa3.GetCheck())
 		m_result1 += m_num3 * 350;
 	UpdateData(false);
+}
+
+
+void CdemoDlg::OnBnClickedTimer()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	//SetTimer启动定时器
+	SetTimer(1, 10, NULL);
+}
+
+
+void CdemoDlg::OnBnClickedReset()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	KillTimer(1);//销毁定时器KillTimer,同时将文本复位到00:00:00
+	m_time.SetWindowTextW(_T("00:00:00"));
+}
+
+
+void CdemoDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	// TODO:  在此添加消息处理程序代码和/或调用默认值
+	static UINT mm = 0;
+	static UINT ss = 0;
+	static UINT mss = 0;
+	CString str;
+	switch (nIDEvent)
+	{
+	case 1:
+		mss++;
+		if (mss == 100){ mss = 0; ss++; }
+		if (ss==60)
+		{
+			ss = 0; mm++;
+		}
+		str.Format(_T("%02i:%02i:%02i"), mm, ss, mss);
+		m_time.SetWindowTextW(str);
+		break;
+	}
+
+	CDialogEx::OnTimer(nIDEvent);
 }
