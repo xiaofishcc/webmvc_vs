@@ -58,6 +58,8 @@ CdemoDlg::CdemoDlg(CWnd* pParent /*=NULL*/)
 	, m_num2(0)
 	, m_num3(0)
 	, m_result1(0)
+	, m_result2(0)
+	, m_com2(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -80,6 +82,15 @@ void CdemoDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_Result1, m_result1);
 	DDX_Control(pDX, IDC_TimeDis, m_time);
 	DDX_Control(pDX, IDC_AutoStart, m_autoStart);
+	DDX_Control(pDX, IDC_Com1, m_com1);
+	//  DDX_Control(pDX, IDC_Com2, m_com2);
+	//  DDX_Control(pDX, IDC_Com3, m_com3);
+	DDX_Text(pDX, IDC_result2, m_result2);
+	//  DDX_CBString(pDX, IDC_Com3, m_com3Control);
+	//  DDX_CBString(pDX, IDC_Com2, m_com2Control);
+	DDX_Control(pDX, IDC_Com2, m_algor);
+	DDX_CBString(pDX, IDC_Com3, m_com2);
+	DDX_Control(pDX, IDC_Com3, m_com2Control);
 }
 
 BEGIN_MESSAGE_MAP(CdemoDlg, CDialogEx)
@@ -98,6 +109,7 @@ BEGIN_MESSAGE_MAP(CdemoDlg, CDialogEx)
 	ON_WM_TIMER()
 	ON_BN_CLICKED(IDC_Click, &CdemoDlg::OnBnClickedClick)
 	ON_BN_CLICKED(IDC_AutoStart, &CdemoDlg::OnBnClickedAutostart)
+	ON_BN_CLICKED(IDC_CALC, &CdemoDlg::OnBnClickedCalc)
 END_MESSAGE_MAP()
 
 
@@ -134,6 +146,16 @@ BOOL CdemoDlg::OnInitDialog()
 
 	// TODO:  在此添加额外的初始化代码
 	GetDlgItem(IDC_CALC1)->EnableWindow(false);
+
+	m_com2Control.AddString(_T("1"));
+	m_com2Control.AddString(_T("2"));
+	m_com2Control.AddString(_T("3"));
+	m_com2Control.AddString(_T("4"));
+	m_com2Control.AddString(_T("5"));
+	//将三个组合框的默认选项设为第一项
+	m_com2Control.SetCurSel(0);
+	m_com1.SetCurSel(0);
+	m_algor.SetCurSel(0);
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -336,4 +358,39 @@ void CdemoDlg::OnBnClickedAutostart()
 			RegCloseKey(hKey);//关闭注册表
 		}
 	}
+}
+
+
+void CdemoDlg::OnBnClickedCalc()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	UpdateData(true);
+	m_result2 = 0;
+	double com1 = (m_com1.GetCurSel() + 1) * 10;
+	double com2 = atof(str2char(m_com2));
+	//str2char自己写的函数
+	switch (m_algor.GetCurSel())
+	{
+	case 0:m_result2 = com1 + com2; break;
+	case 1:m_result2 = com1 - com2; break;
+	case 2:m_result2 = com1 * com2; break;
+	case 3:m_result2 = com1 / com2; break;
+	}
+	UpdateData(false);
+
+}
+char* CdemoDlg::str2char(CString str)
+{
+	char *ptr;
+#ifdef _UNICODE
+	LONG len;
+	len = WideCharToMultiByte(CP_ACP, 0, str, -1, NULL, 0, NULL, NULL);
+	ptr = new char[len + 1];
+	memset(ptr, 0, len + 1);
+	WideCharToMultiByte(CP_ACP, 0, str, -1, ptr, len + 1, NULL, NULL);
+#else
+	ptr = new char[str.GetAllocLength() + 1];
+	sprintf(ptr, _T("%s"), str);
+#endif
+	return ptr;
 }

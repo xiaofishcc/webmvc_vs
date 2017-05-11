@@ -61,4 +61,10 @@ public:
 	afx_msg void OnBnClickedClick();
 	CButton m_autoStart;
 	afx_msg void OnBnClickedAutostart();
+	CComboBox m_com1;
+	double m_result2;
+	afx_msg void OnBnClickedCalc();
+	CComboBox m_algor;
+	CString m_com2;
+	CComboBox m_com2Control;
 };
