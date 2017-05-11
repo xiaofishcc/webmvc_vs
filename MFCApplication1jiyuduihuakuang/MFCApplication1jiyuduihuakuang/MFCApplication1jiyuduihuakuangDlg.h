@@ -58,4 +58,9 @@ public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnEnChangeStatus();
 	afx_msg void OnEnChangePassword();
+	afx_msg void OnEnChangeResult();
+	afx_msg void OnEnChangeAdd2();
+	afx_msg void OnEnChangeAdd1();
+	afx_msg void OnEnChangeRecord();
+
 };

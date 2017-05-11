@@ -59,6 +59,7 @@ CMFCApplication1jiyuduihuakuangDlg::CMFCApplication1jiyuduihuakuangDlg(CWnd* pPa
 	, m_passWord(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	m_add1 = 0.0;
 }
 
 void CMFCApplication1jiyuduihuakuangDlg::DoDataExchange(CDataExchange* pDX)
@@ -93,6 +94,10 @@ BEGIN_MESSAGE_MAP(CMFCApplication1jiyuduihuakuangDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_CALC, &CMFCApplication1jiyuduihuakuangDlg::OnBnClickedCalc)
 	ON_EN_CHANGE(IDC_Status, &CMFCApplication1jiyuduihuakuangDlg::OnEnChangeStatus)
 	ON_EN_CHANGE(IDC_Password, &CMFCApplication1jiyuduihuakuangDlg::OnEnChangePassword)
+	ON_EN_CHANGE(IDC_Result, &CMFCApplication1jiyuduihuakuangDlg::OnEnChangeResult)
+	ON_EN_CHANGE(IDC_Add2, &CMFCApplication1jiyuduihuakuangDlg::OnEnChangeAdd2)
+	ON_EN_CHANGE(IDC_Add1, &CMFCApplication1jiyuduihuakuangDlg::OnEnChangeAdd1)
+	ON_EN_CHANGE(IDC_Record, &CMFCApplication1jiyuduihuakuangDlg::OnEnChangeRecord)
 END_MESSAGE_MAP()
 
 // CMFCApplication1jiyuduihuakuangDlg 消息处理程序
@@ -288,7 +293,7 @@ void CMFCApplication1jiyuduihuakuangDlg::OnBnClickedCalc()
 	m_result = m_add1 + m_add2;
 	UpdateData(false);//更新数据
 	CString str;
-	str.Format(_T("%g%s%g%s%g"),m_add1, _T("+"), m_add2, _T("="),m_result);//数据显示格式
+	str.Format(_T("%g %s %g %s %g"),m_add1, _T("+"), m_add2, _T("="),m_result);//数据显示格式
 	str += _T("\r\n");//回车换行
 	int lastLine = m_record.LineIndex(m_record.GetLineCount() - 1);
 	m_record.SetSel(lastLine + 1, lastLine + 2, 0);
@@ -303,7 +308,7 @@ BOOL CMFCApplication1jiyuduihuakuangDlg::PreTranslateMessage(MSG* pMsg)
 	{
 	case VK_RETURN:
 		UpdateData(true);
-		if (m_passWord == _T("111111"))
+		if (m_passWord == _T(""))
 		{
 			GetDlgItem(IDC_CALC)->EnableWindow(true);
 			GetDlgItem(IDC_Status)->SetWindowTextW(_T("sucess"));
@@ -331,6 +336,50 @@ void CMFCApplication1jiyuduihuakuangDlg::OnEnChangeStatus()
 
 
 void CMFCApplication1jiyuduihuakuangDlg::OnEnChangePassword()
+{
+	// TODO:  如果该控件是 RICHEDIT 控件，它将不
+	// 发送此通知，除非重写 CDialogEx::OnInitDialog()
+	// 函数并调用 CRichEditCtrl().SetEventMask()，
+	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。
+
+	// TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CMFCApplication1jiyuduihuakuangDlg::OnEnChangeResult()
+{
+	// TODO:  如果该控件是 RICHEDIT 控件，它将不
+	// 发送此通知，除非重写 CDialogEx::OnInitDialog()
+	// 函数并调用 CRichEditCtrl().SetEventMask()，
+	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。
+
+	// TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CMFCApplication1jiyuduihuakuangDlg::OnEnChangeAdd2()
+{
+	// TODO:  如果该控件是 RICHEDIT 控件，它将不
+	// 发送此通知，除非重写 CDialogEx::OnInitDialog()
+	// 函数并调用 CRichEditCtrl().SetEventMask()，
+	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。
+
+	// TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CMFCApplication1jiyuduihuakuangDlg::OnEnChangeAdd1()
+{
+	// TODO:  如果该控件是 RICHEDIT 控件，它将不
+	// 发送此通知，除非重写 CDialogEx::OnInitDialog()
+	// 函数并调用 CRichEditCtrl().SetEventMask()，
+	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。
+
+	// TODO:  在此添加控件通知处理程序代码
+}
+
+
+void CMFCApplication1jiyuduihuakuangDlg::OnEnChangeRecord()
 {
 	// TODO:  如果该控件是 RICHEDIT 控件，它将不
 	// 发送此通知，除非重写 CDialogEx::OnInitDialog()
