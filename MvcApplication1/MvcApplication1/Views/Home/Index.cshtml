@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ASP.NET Web API</title>
+    <link href="http://www.cnblogs.com/Content/Site.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-1.8.2.min.js"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Send an AJAX request
+            $.getJSON("Person/person1/",
+            function (data) {
+                // On success, 'data' contains a list of products.
+                $.each(data, function (key, val) {
+                    // Format the text to display.
+                    var str = val.Name + ': $' + val.City;
+                    // Add a list item for the product.
+                    $('<li/>', { text: str })
+                    .appendTo($('#persons'));
+                });
+            });
+        });
+        function find() {
+            var id = $('#personId').val();
+            $.getJSON("Person/person2/" + id,
+                function (data) {
+                    var str = data.Name + ': $' + data.City;
+                    $('#person').text(str);
+                })
+            .fail(
+                function (jqXHR, textStatus, err) {
+                    $('#person').text('Error: ' + err);
+                });
+        }
+    </script>
+</head>
+<body id="body">
+    <div class="main-content">
+        <div>
+            <h1>All Persons</h1>
+            <ul id="persons" />
+        </div>
+        <div>
+            <label for="personId">ID:</label>
+            <input type="text" id="personId" size="5" />
+            <input type="button" value="Search" onclick="find()" />
+            <p id="person" />
+        </div>
+    </div>
+</body>
+</html>
